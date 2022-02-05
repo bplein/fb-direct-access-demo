@@ -11,9 +11,10 @@ Use `px-fb-da-sc.yaml` to create a Direct Access storageclass using FlashBlade, 
 
 ## Example:
 ```
+kubectl create ns fb-da-demo
 kubectl apply -f px-fb-da-sc.yaml
-kubectl apply -f deployment-rwo.yaml
-kubectl apply -f deployment-rwx.yaml
+kubectl -n fb-da-demo apply -f deployment-rwo.yaml
+kubectl -n fb-da-demo apply -f deployment-rwx.yaml
 ```
 
 This will create two deployments:

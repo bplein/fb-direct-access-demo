@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fb-da-rwo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 11Gi
+  storageClassName: fb-direct-access
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-rwo-deployment
+  labels:
+    app: busybox-rwo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox-rwo
+  template:
+    metadata:
+      labels:
+        app: busybox-rwo
+    spec:
+      containers:
+      - name: busybox-rwo
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        command: ['sh', '-c', 'echo Container 1 is Running ; sleep 3600']
+        volumeMounts:
+        - mountPath: /mnt/busybox-rwo
+          name: busybox-rwo
+      volumes:
+      - name: busybox-rwo
+        persistentVolumeClaim:
+          claimName: fb-da-rwo

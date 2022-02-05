@@ -2,12 +2,14 @@
 
 This code will help demonstrate Portworx using Direct Access volumes with FlashBlade.
 
-Prerequisites: Portworx Enterprise installed
-Portworx enabled for access to a FlashBlade (using pure.json as noted here: https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/pure-flashblade/)
+## Prerequisites: 
+* Portworx Enterprise installed
+* Portworx enabled for access to a FlashBlade (using pure.json as noted here: https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/create-pvcs/pure-flashblade/)
 
+## Usage:
 Use `px-fb-da-sc.yaml` to create a Direct Access storageclass using FlashBlade, then deploy the RWO and RWX examples.
 
-Example:
+## Example:
 ```
 kubectl apply -f px-fb-da-sc.yaml
 kubectl apply -f deployment-rwo.yaml

@@ -1,4 +1,4 @@
-# fb-direct-access-demo
+# px-demo-fb-direct-access
 
 This code will help demonstrate Portworx using Direct Access volumes with FlashBlade.
 

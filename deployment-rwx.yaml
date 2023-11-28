@@ -31,7 +31,7 @@ spec:
       - name: busybox-rwx
         image: busybox
         imagePullPolicy: IfNotPresent
-        command: ['sh', '-c', 'echo Container 1 is Running ; sleep 3600']
+        command: ['sh', '-c', 'while true;do NOW=$(date +"%Y-%m-%d %T");HOSTNAME=$(hostname);echo ${NOW} - ${HOSTNAME} is mounted! >> /mnt/busybox-rwx/hosts.log;sleep 30;done']
         volumeMounts:
         - mountPath: /mnt/busybox-rwx
           name: busybox-rwx
